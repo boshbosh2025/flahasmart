@@ -19,7 +19,25 @@ Cette application permet de gérer les stocks agricoles avec une interface utili
 - **Git** - Versionnement
 
 ## 📁 Structure du projet
-
+flahasmart/
+├── .mvn/ # Configuration Maven wrapper
+├── src/
+│ ├── main/
+│ │ ├── java/ # Code source Java
+│ │ │ └── com/example/flahasmart/
+│ │ │ ├── controllers/ # Contrôleurs JavaFX
+│ │ │ ├── entities/ # Entités métier
+│ │ │ ├── services/ # Services
+│ │ │ └── utils/ # Utilitaires
+│ │ └── resources/ # Ressources (FXML, CSS)
+│ │ └── com/example/flahasmart/
+│ │ ├── css/ # Feuilles de style
+│ │ ├── AgrichStock.fxml # Interface agricole
+│ │ └── BackStock.fxml # Interface back-office
+├── .gitignore # Fichiers ignorés par Git
+├── mvnw # Maven wrapper (Linux/Mac)
+├── mvnw.cmd # Maven wrapper (Windows)
+└── pom.xml # Configuration Maven
 ## 🚀 Installation et exécution
 
 ### Prérequis
