@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane prefHeight="235.0" prefWidth="188.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flahasmart.controllers.CardStockController">
+
+    <VBox prefHeight="194.0" prefWidth="188.0" spacing="8" styleClass="stock-card" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0">
+        <padding>
+            <Insets bottom="12" left="12" right="12" top="12" />
+        </padding>
+
+        <Label fx:id="typeLabel" styleClass="title" text="Type" />
+        <Label fx:id="varieteLabel" styleClass="muted" text="Variété" />
+
+        <HBox spacing="8">
+            <Label styleClass="muted" text="Début :" />
+            <Label fx:id="dateLabel" text="2026-02-17" />
+        </HBox>
+
+        <HBox spacing="8">
+            <Label styleClass="muted" text="Statut :" />
+            <Label fx:id="statutLabel" styleClass="badge" text="en cours" />
+        </HBox>
+
+        <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="271.0" spacing="10">
+            <!-- NOUVEAU BOUTON CONSOMMATION AVEC ICÔNE -->
+            <Button fx:id="consumptionBtn" onAction="#openConsumption" prefHeight="27.0" prefWidth="92.0" styleClass="btn-consumption">
+                <graphic>
+                    <FontIcon iconColor="white" iconLiteral="fas-chart-line" iconSize="14" />
+                </graphic>
+            </Button>
+
+            <Button fx:id="editBtn" onAction="#editItem" prefHeight="11.0" prefWidth="88.0" style="-fx-background-color: green;" styleClass="btn-consumption">
+            <graphic>
+               <FontIcon iconColor="white" iconLiteral="fas-edit" iconSize="14" />
+            </graphic></Button>
+            <Button fx:id="deleteBtn" onAction="#deleteItem" style="-fx-background-color: red;" styleClass="btn-consumption">
+            <graphic>
+               <FontIcon iconColor="white" iconLiteral="fas-trash" iconSize="14" />
+            </graphic></Button>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

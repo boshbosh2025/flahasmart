@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<?import javafx.scene.layout.StackPane?>
+<BorderPane stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flahasmart.controllers.StockBackController">
+
+    <!-- HEADER AGRICULTEUR -->
+    <top>
+        <VBox styleClass="farmer-header">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <FontIcon iconLiteral="fas-tractor" iconSize="22" />
+                <Label styleClass="farmer-title" text="Suivi des Cultures" />
+            </HBox>
+
+            <Label styleClass="farmer-subtitle" text="Ajoutez ou suivez vos plantations" />
+        </VBox>
+    </top>
+    <StackPane fx:id="toastContainer" pickOnBounds="false"
+               alignment="TOP_RIGHT"
+               BorderPane.alignment="TOP_RIGHT">
+    </StackPane>
+
+
+    <!-- CONTENU -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="25">
+            <padding>
+                <Insets left="25" right="25" top="25" />
+            </padding>
+
+            <!-- FORMULAIRE -->
+            <HBox alignment="CENTER" spacing="25">
+
+                <!-- COLONNE GAUCHE -->
+                <VBox spacing="12" styleClass="farmer-form">
+
+                    <HBox alignment="CENTER_LEFT" spacing="6">
+                        <FontIcon iconLiteral="fas-leaf" />
+                        <Label text="Culture" />
+                    </HBox>
+                    <TextField fx:id="typeField" promptText="Ex: Tomate" styleClass="stock-card" stylesheets="@css/style.css" />
+
+                    <HBox alignment="CENTER_LEFT" spacing="6">
+                        <FontIcon iconLiteral="fas-seedling" />
+                        <Label text="Variété" />
+                    </HBox>
+                    <TextField fx:id="varieteField" promptText="Ex: Cerise" styleClass="stock-card" stylesheets="@css/style.css" />
+
+                    <HBox alignment="CENTER_LEFT" spacing="6">
+                        <FontIcon iconLiteral="fas-tasks" />
+                        <Label text="Etat" />
+                    </HBox>
+                    <ComboBox fx:id="statutBox" styleClass="stock-card" stylesheets="@css/style.css" />
+
+                </VBox>
+
+                <VBox alignment="TOP_CENTER" spacing="12" styleClass="farmer-form">
+
+                    <HBox alignment="CENTER_LEFT" spacing="6">
+                        <FontIcon iconLiteral="fas-calendar-plus" />
+                        <Label text="Début plantation" />
+                    </HBox>
+                    <DatePicker fx:id="dateDebutPicker" styleClass="stock-card" stylesheets="@css/style.css" />
+
+                    <HBox alignment="CENTER_LEFT" spacing="6">
+                        <FontIcon iconLiteral="fas-calendar-check" />
+                        <Label text="Fin estimée" />
+                    </HBox>
+                    <DatePicker fx:id="dateFinPicker" styleClass="stock-card" stylesheets="@css/style.css" />
+
+                    <Button onAction="#add" styleClass="farmer-btn" stylesheets="@css/style.css">
+                        <graphic>
+                            <FontIcon iconColor="white" iconLiteral="fas-save" />
+                        </graphic>
+                        <text>Enregistrer</text>
+                    </Button>
+
+                </VBox>
+
+            </HBox>
+
+            <Label fx:id="errorLabel" style="-fx-text-fill:#d32f2f" />
+
+            <!-- LISTE -->
+            <ScrollPane fitToWidth="true" styleClass="farmer-list">
+                <content>
+                    <FlowPane fx:id="container" hgap="20" vgap="20" />
+                </content>
+            </ScrollPane>
+
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flahasmart.controllers.StockBackController">
+
+    <!-- HEADER -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="header">
+            <FontIcon iconLiteral="fas-truck" /> <!-- For delivery/transport -->
+            <Label styleClass="title" text="Gestion des Produits Agricoles" />
+        </HBox>
+    </top>
+    <StackPane fx:id="toastContainer" alignment="TOP_RIGHT" pickOnBounds="false" BorderPane.alignment="TOP_RIGHT">
+    </StackPane>
+
+
+    <!-- CONTENU -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="20">
+            <padding>
+                <Insets left="20" right="20" top="20" />
+            </padding>
+
+            <!-- FORM CARD -->
+            <VBox prefHeight="149.0" prefWidth="1317.0" spacing="15" styleClass="form-card">
+            <HBox prefHeight="43.0" prefWidth="540.0">
+               <children>
+      
+                      <!-- TYPE PRODUIT -->
+                      <VBox prefHeight="79.0" prefWidth="260.0" spacing="4">
+                          <HBox alignment="CENTER_LEFT" spacing="6">
+                              <FontIcon iconLiteral="fas-leaf" />
+                              <Label text="Type de produit">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                          </HBox>
+                          <TextField fx:id="typeField" prefHeight="74.0" prefWidth="175.0" promptText="Ex: Tomate, Pomme de terre" styleClass="stock-card" />
+                      </VBox>
+                  <Region prefHeight="68.0" prefWidth="23.0" />
+      
+                      <!-- VARIETE -->
+                      <VBox spacing="4">
+                          <HBox alignment="CENTER_LEFT" spacing="6">
+                              <FontIcon iconLiteral="fas-seedling" />
+                              <Label text="Variété">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                          </HBox>
+                          <TextField fx:id="varieteField" prefHeight="65.0" prefWidth="32.0" promptText="Ex: Cerise, Spunta" styleClass="stock-card">
+                        <VBox.margin>
+                           <Insets left="9.0" />
+                        </VBox.margin></TextField>
+                      </VBox>
+      
+                      <!-- DATES -->
+                      <HBox spacing="20">
+      
+                          <VBox spacing="4">
+                              <HBox alignment="CENTER_LEFT" spacing="6">
+                                  <FontIcon iconLiteral="fas-calendar-plus" />
+                                  <Label text="Date début">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                              </HBox>
+                              <DatePicker fx:id="dateDebutPicker" prefWidth="61.0" styleClass="stock-card" />
+                        <HBox.margin>
+                           <Insets left="9.0" />
+                        </HBox.margin>
+                          </VBox>
+      
+                          <VBox spacing="4">
+                              <HBox alignment="CENTER_LEFT" spacing="6">
+                                  <FontIcon iconLiteral="fas-calendar-check" />
+                                  <Label text="Date fin estimée">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                              </HBox>
+                              <DatePicker fx:id="dateFinPicker" styleClass="stock-card" />
+                          </VBox>
+      
+                      </HBox>
+      
+                            <!-- BOUTON -->
+                      <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="540.0">
+                     <Region prefHeight="76.0" prefWidth="61.0" />
+         
+                         <!-- STATUT -->
+                         <VBox spacing="4">
+                             <HBox alignment="CENTER_LEFT" spacing="6">
+                                 <FontIcon iconLiteral="fas-tasks" />
+                                 <Label text="Statut de culture">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                             </HBox>
+                             <ComboBox fx:id="statutBox" prefHeight="66.0" prefWidth="165.0" styleClass="stock-card" />
+                         </VBox>
+                     <Region prefHeight="76.0" prefWidth="61.0" />
+                          <Button onAction="#add" prefHeight="49.0" prefWidth="54.0" styleClass="btn-primary">
+                              <graphic>
+                                  <FontIcon iconColor="WHITE" iconLiteral="fas-save" iconSize="16" />
+                              </graphic>
+                          </Button>
+                      </HBox>
+               </children>
+            </HBox>
+
+                      <Label fx:id="errorLabel" style="-fx-text-fill:red;" />
+
+            </VBox>
+
+            <!-- LISTE PRODUITS -->
+            <ScrollPane fitToWidth="true" prefHeight="542.0" prefWidth="795.0" style="-fx-background-color: transparent;;" styleClass="stock-card" stylesheets="@css/style.css">
+                <content>
+                    <FlowPane fx:id="container" hgap="15" style="-fx-background-color: transparent;;" vgap="15" />
+                </content>
+            </ScrollPane>
+
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane prefHeight="500" prefWidth="600" style="-fx-background-color: transparent;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flahasmart.controllers.ConsommationDetailController">
+
+    <VBox spacing="15" styleClass="details-popup" stylesheets="@css/style.css" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
+
+        <!-- En-tête -->
+        <VBox alignment="CENTER" spacing="8">
+            <FontIcon iconColor="#4CAF50" iconLiteral="fas-chart-line" iconSize="40" />
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" styleClass="popup-title" text="Détails des consommations" textFill="#00ab25" />
+            <Label fx:id="productNameLabel" style="-fx-text-fill: #666;" styleClass="popup-subtitle" />
+        </VBox>
+
+        <!-- Conteneur des cartes (scrollable) -->
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+            <FlowPane fx:id="cardsContainer" hgap="15" style="-fx-padding: 10;" vgap="15" />
+        </ScrollPane>
+
+        <!-- Bouton fermer -->
+        <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="closeBtn" onAction="#closePopup" prefWidth="120" styleClass="btn-modern-close" stylesheets="@css/style.css" text="Fermer" />
+        </HBox>
+    </VBox>
+</AnchorPane>

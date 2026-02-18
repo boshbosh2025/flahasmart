@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flahasmart.controllers.RoleSelectionController">
+
+    <VBox spacing="30" alignment="CENTER" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+        </padding>
+
+        <!-- Titre -->
+        <Label styleClass="role-title" text="Choisissez votre espace" />
+
+        <!-- Boutons -->
+        <HBox spacing="30" alignment="CENTER">
+            <!-- Admin -->
+            <Button fx:id="adminBtn" onAction="#openAdmin" styleClass="role-button, admin-btn">
+                <graphic>
+                    <VBox alignment="CENTER" spacing="10">
+                        <FontIcon iconLiteral="fas-user-cog" iconSize="40" iconColor="white"/>
+                        <Label text="Administrateur" styleClass="role-button-text" textFill="white"/>
+                    </VBox>
+                </graphic>
+            </Button>
+
+            <!-- Agriculteur -->
+            <Button fx:id="agriculteurBtn" onAction="#openAgriculteur" styleClass="role-button, agriculteur-btn">
+                <graphic>
+                    <VBox alignment="CENTER" spacing="10">
+                        <FontIcon iconLiteral="fas-tractor" iconSize="40" iconColor="white"/>
+                        <Label text="Agriculteur" styleClass="role-button-text" textFill="white"/>
+                    </VBox>
+                </graphic>
+            </Button>
+
+            <!-- Client -->
+            <Button fx:id="clientBtn" onAction="#openClient" styleClass="role-button, client-btn">
+                <graphic>
+                    <VBox alignment="CENTER" spacing="10">
+                        <FontIcon iconLiteral="fas-user" iconSize="40" iconColor="white"/>
+                        <Label text="Client" styleClass="role-button-text" textFill="white"/>
+                    </VBox>
+                </graphic>
+            </Button>
+        </HBox>
+    </VBox>
+</AnchorPane>

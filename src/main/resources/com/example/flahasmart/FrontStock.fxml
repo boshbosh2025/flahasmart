@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flahasmart.controllers.StockFrontController">
+
+    <!-- ================= HEADER ================= -->
+    <top>
+        <VBox spacing="8" styleClass="front-header">
+
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <FontIcon iconColor="#acbf97" iconLiteral="fas-seedling" iconSize="22" />
+                <Label styleClass="title" text="Tableau de suivi agricole" textFill="WHITE" />
+            </HBox>
+
+            <Label styleClass="subtitle" text="Consultez vos cultures, suivez leur évolution et leur durée de production" />
+
+        </VBox>
+    </top>
+
+    <!-- ================= CONTENT ================= -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="20">
+
+            <padding>
+                <Insets left="25" right="25" top="20" />
+            </padding>
+
+            <!-- ===== SEARCH BAR ===== -->
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="search-card">
+
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <FontIcon iconColor="#006f06" iconLiteral="fas-search" />
+                    <TextField fx:id="searchField" promptText="Rechercher une culture..." styleClass="search-field" />
+                </HBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <ComboBox fx:id="filterBox" promptText="Etat" styleClass="combo-modern" />
+                <ComboBox fx:id="sortBox" promptText="Tri" styleClass="combo-modern" />
+
+            </HBox>
+
+            <!-- ===== STATS BAR ===== -->
+            <HBox alignment="CENTER_LEFT" spacing="25">
+            <Region prefHeight="97.0" prefWidth="292.0" />
+
+                <!-- ACTIVES -->
+                <VBox alignment="CENTER" styleClass="stat-card">
+                    <FontIcon iconColor="#2e7d32" iconLiteral="fas-leaf" iconSize="18" />
+                    <Label styleClass="stat-title" text="Cultures actives" />
+                    <Label fx:id="activeCountLabel" styleClass="stat-value" text="0" />
+                </VBox>
+            <Region prefHeight="97.0" prefWidth="22.0" />
+
+                <!-- EN CROISSANCE -->
+                <VBox alignment="CENTER" styleClass="stat-card">
+                    <FontIcon iconColor="#2e7d32" iconLiteral="fas-seedling" iconSize="18" />
+                    <Label styleClass="stat-title" text="En croissance" />
+                    <Label fx:id="growthCountLabel" styleClass="stat-value" text="0" />
+                </VBox>
+            <Region prefHeight="97.0" prefWidth="19.0" />
+
+                <!-- TERMINEES -->
+                <VBox alignment="CENTER" styleClass="stat-card">
+                    <FontIcon iconColor="#2e7d32" iconLiteral="fas-check-circle" iconSize="18" />
+                    <Label styleClass="stat-title" text="Terminées" />
+                    <Label fx:id="doneCountLabel" styleClass="stat-value" text="0" />
+                </VBox>
+            <Region prefHeight="97.0" prefWidth="120.0" />
+
+            </HBox>
+
+
+            <!-- ===== CARDS LIST ===== -->
+            <ScrollPane fitToWidth="true" prefHeight="323.0" prefWidth="1145.0" style="-fx-background-color: transparent;;" styleClass="list-container">
+                <content>
+                    <FlowPane fx:id="container" hgap="20" vgap="20" />
+
+                </content>
+            </ScrollPane>
+            
+        </VBox>
+    </center>
+</BorderPane>
